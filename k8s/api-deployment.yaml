@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ww-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ww-api
+  template:
+    metadata:
+      labels:
+        app: ww-api
+    spec:
+      containers:
+        - name: ww-api
+          image: gaddock/ww-api:1.3
+          ports:
+            - containerPort: 8000
+          env:
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_DB
+              value: weapon_db
+            - name: MYSQL_USER
+              value: app_user
+            - name: MYSQL_PASSWORD
+              value: secret
