@@ -1,13 +1,19 @@
 from fastapi import FastAPI, UploadFile, Depends
 import pandas as pd
-from db import get_conn, init_db
+from db import get_conn, init_db, pool
 
 
 app = FastAPI()
 
+
 @app.on_event("startup")
-def startup_event(conn=Depends(get_conn)):
-    init_db(conn)
+def startup_event():
+    conn = pool.get_connection()
+    try:
+        init_db(conn)
+    finally:
+        conn.close()
+
 
 @app.post('/upload')
 def upload_csv(file: UploadFile, conn=Depends(get_conn)):

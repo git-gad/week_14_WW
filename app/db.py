@@ -1,8 +1,5 @@
 from mysql.connector.pooling import MySQLConnectionPool
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 pool = MySQLConnectionPool(
     pool_name='main_pool',

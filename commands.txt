@@ -1,0 +1,4 @@
+docker build -t gaddock/ww-api:1.6
+docker push gaddock/ww-api:1.6
+kubectl apply -f k8s/
+kubectl get pods
