@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ww-api
-          image: gaddock/ww-api:1.6
+          image: gaddock/ww-api:1.7
           ports:
             - containerPort: 8000
           env:

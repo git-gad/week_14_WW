@@ -21,6 +21,12 @@ def get_conn():
 def init_db(conn):
     cursor = conn.cursor()
     
+    grand_privileges = "GRANT ALL PRIVILEGES ON weather_db.* TO 'app_user'@'%;"
+    cursor.execute(grand_privileges)
+    
+    flush_privileges = "FLUSH PRIVILEGES;"
+    cursor.execute(flush_privileges)
+    
     sql = '''
     CREATE TABLE IF NOT EXISTS weapons (
         id INT AUTO_INCREMENT PRIMARY KEY,
