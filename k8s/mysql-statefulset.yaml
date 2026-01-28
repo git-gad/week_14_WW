@@ -22,7 +22,7 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: rootpass
             - name: MYSQL_DATABASE
-              value: weather_db
+              value: weapon_db
             - name: MYSQL_USER
               value: app_user
             - name: MYSQL_PASSWORD
